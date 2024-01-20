@@ -7,6 +7,17 @@ import javascript from "../icons/javascript.svg";
 import accessibility from "../icons/accessibility.svg";
 
 const Main = (props) => {
+  const topics = [
+    { id: 1, icon: html, name: "HTML" },
+    { id: 2, icon: css, name: "CSS" },
+    { id: 3, icon: javascript, name: "Javascript" },
+    { id: 4, icon: accessibility, name: "Accessibility" },
+  ];
+  const topicSelect = (topic) => {
+    props.setTopicClicked(true);
+    console.log("Selected topic:", topic.name);
+    // You can add more logic here to handle the selection
+  };
   return (
     <div>
       {!props.goDark ? (
@@ -22,22 +33,20 @@ const Main = (props) => {
               </a>
             </div>
             <div className="topic_Select_Box">
-              <div className="topic_Container">
-                <img className="topic_icon" src={html} />
-                <a className="topic_Text">HTML</a>
-              </div>
-              <div className="topic_Container">
-                <img className="topic_icon" src={css} />
-                <a className="topic_Text">CSS</a>
-              </div>
-              <div className="topic_Container">
-                <img className="topic_icon" src={javascript} />
-                <a className="topic_Text">Javascript</a>
-              </div>
-              <div className="topic_Container">
-                <img className="topic_icon" src={accessibility} />
-                <a className="topic_Text">Accessibility</a>
-              </div>
+              {topics.map((topic) => (
+                <div
+                  key={topic.id}
+                  className="topic_Container"
+                  onClick={() => topicSelect(topic)}
+                >
+                  <img
+                    className="topic_icon"
+                    src={topic.icon}
+                    alt={topic.name}
+                  />
+                  <a className="topic_Text">{topic.name}</a>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -58,42 +67,23 @@ const Main = (props) => {
               </a>
             </div>
             <div className="topic_Select_Box">
-              <div
-                className="topic_Container"
-                style={{ background: "#3B4D66" }}
-              >
-                <img className="topic_icon" src={html} />
-                <a className="topic_Text" style={{ color: " #FFF" }}>
-                  HTML
-                </a>
-              </div>
-              <div
-                className="topic_Container"
-                style={{ background: "#3B4D66" }}
-              >
-                <img className="topic_icon" src={css} />
-                <a className="topic_Text" style={{ color: " #FFF" }}>
-                  CSS
-                </a>
-              </div>
-              <div
-                className="topic_Container"
-                style={{ background: "#3B4D66" }}
-              >
-                <img className="topic_icon" src={javascript} />
-                <a className="topic_Text" style={{ color: " #FFF" }}>
-                  Javascript
-                </a>
-              </div>
-              <div
-                className="topic_Container"
-                style={{ background: "#3B4D66" }}
-              >
-                <img className="topic_icon" src={accessibility} />
-                <a className="topic_Text" style={{ color: " #FFF" }}>
-                  Accessibility
-                </a>
-              </div>
+              {topics.map((topic) => (
+                <div
+                  key={topic.id}
+                  className="topic_Container"
+                  onClick={() => topicSelect(topic)}
+                  style={{ background: "#3B4D66" }}
+                >
+                  <img
+                    className="topic_icon"
+                    src={topic.icon}
+                    alt={topic.name}
+                  />
+                  <a className="topic_Text" style={{ color: " #FFF" }}>
+                    {topic.name}
+                  </a>
+                </div>
+              ))}
             </div>
           </div>
         </div>

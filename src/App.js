@@ -11,6 +11,7 @@ function App(props) {
   const [goDark, setGoDark] = useState(false);
   const [goLight, setGoLight] = useState(true);
   const [quizData, setQuizData] = useState(data);
+  const [topicClicked, setTopicClicked] = useState(false);
 
   const handleDark = (props) => {
     setGoDark(!goDark);
@@ -27,20 +28,28 @@ function App(props) {
             setGoLight={setGoLight}
             handleDark={handleDark}
           />
-          {/* <Main
-        goDark={goDark}
-        setGoDark={setGoDark}
-        goLight={goLight}
-        setGoLight={setGoLight}
-        handleDark={handleDark}
-      /> */}
-          <Quiztopic
+          <Main
+            setTopicClicked={setTopicClicked}
+            topicClicked={topicClicked}
+            setQuizData={setQuizData}
+            quizData={quizData}
             goDark={goDark}
             setGoDark={setGoDark}
             goLight={goLight}
             setGoLight={setGoLight}
             handleDark={handleDark}
           />
+          {/* <Quiztopic
+          setTopicClicked={setTopicClicked}
+            topicClicked={topicClicked}
+           setQuizData={setQuizData}
+            quizData={quizData}
+            goDark={goDark}
+            setGoDark={setGoDark}
+            goLight={goLight}
+            setGoLight={setGoLight}
+            handleDark={handleDark}
+          /> */}
         </div>
       ) : (
         <div className="App" style={{ backgroundColor: "#313E51" }}>
@@ -52,6 +61,10 @@ function App(props) {
             handleDark={handleDark}
           />
           {/* <Main
+          setTopicClicked={setTopicClicked}
+            topicClicked={topicClicked}
+           setQuizData={setQuizData}
+            quizData={quizData}
         goDark={goDark}
         setGoDark={setGoDark}
         goLight={goLight}
@@ -59,6 +72,10 @@ function App(props) {
         handleDark={handleDark}
       /> */}
           <Quiztopic
+            setTopicClicked={setTopicClicked}
+            topicClicked={topicClicked}
+            setQuizData={setQuizData}
+            quizData={quizData}
             goDark={goDark}
             setGoDark={setGoDark}
             goLight={goLight}
