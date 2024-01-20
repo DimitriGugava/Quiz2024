@@ -1,0 +1,114 @@
+.result_Main {
+  display: flex;
+  height: 740px;
+  padding: 32px 24px 0px 24px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+.result_Header_Text_Box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.result_Header_Text_First {
+  align-self: stretch;
+  color: var(--Dark-Navy, #313e51);
+  font-family: "Rubik";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%; /* 40px */
+}
+.result_Header_Text_Second {
+  align-self: stretch;
+  color: var(--Dark-Navy, #313e51);
+  font-family: "Rubik";
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 40px */
+}
+.result_Number_Box {
+  display: flex;
+  padding: 32px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 12px;
+
+  box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14) !important;
+}
+.result_Topic_Box {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.result_Number_Icon {
+  width: 28.571px;
+  height: 28.571px;
+  flex-shrink: 0;
+}
+.result_Topic_Text {
+  font-family: "Rubik";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 18px */
+  color: var(--Dark-Navy, #313e51);
+}
+.result_Number_Text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  color: var(--Dark-Navy, #313e51);
+  font-family: "Rubik";
+  font-size: 88px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 88px */
+}
+.result_Number_Out_Of {
+  color: var(--Grey-Navy, #626c7f);
+  font-family: "Rubik";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%; /* 18px */
+}
+.result_Retake_Quiz {
+  display: flex;
+  height: 56px;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 12px;
+  background: var(--Purple, #a729f5);
+  box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+  color: var(--Pure-White, #fff);
+  font-family: "Rubik";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%; /* 18px */
+  border: none;
+}
+.result_Retake_Quiz:hover {
+  cursor: pointer;
+  background: var(--Purple-Hover, #8c1ef0);
+}
+.result_Retake_Quiz:active {
+  background: var(--Purple-Active, #6f0ddf);
+}
