@@ -5,6 +5,7 @@ import html from "../icons/html.svg";
 import css from "../icons/css.svg";
 import javascript from "../icons/javascript.svg";
 import accessibility from "../icons/accessibility.svg";
+import { Link } from "react-router-dom";
 
 const Main = (props) => {
   const topics = [
@@ -16,7 +17,6 @@ const Main = (props) => {
   const topicSelect = (topic) => {
     props.setTopicClicked(true);
     console.log("Selected topic:", topic.name);
-    // You can add more logic here to handle the selection
   };
   return (
     <div>
@@ -34,18 +34,22 @@ const Main = (props) => {
             </div>
             <div className="topic_Select_Box">
               {topics.map((topic) => (
-                <div
-                  key={topic.id}
-                  className="topic_Container"
-                  onClick={() => topicSelect(topic)}
-                >
-                  <img
-                    className="topic_icon"
-                    src={topic.icon}
-                    alt={topic.name}
-                  />
-                  <a className="topic_Text">{topic.name}</a>
-                </div>
+                <li>
+                  <Link to={`/quiztopic/${topic.name}`}>
+                    <div
+                      key={topic.id}
+                      className="topic_Container"
+                      onClick={() => topicSelect(topic)}
+                    >
+                      <img
+                        className="topic_icon"
+                        src={topic.icon}
+                        alt={topic.name}
+                      />
+                      <a className="topic_Text">{topic.name}</a>
+                    </div>
+                  </Link>
+                </li>
               ))}
             </div>
           </div>
@@ -68,21 +72,22 @@ const Main = (props) => {
             </div>
             <div className="topic_Select_Box">
               {topics.map((topic) => (
-                <div
-                  key={topic.id}
-                  className="topic_Container"
-                  onClick={() => topicSelect(topic)}
-                  style={{ background: "#3B4D66" }}
-                >
-                  <img
-                    className="topic_icon"
-                    src={topic.icon}
-                    alt={topic.name}
-                  />
-                  <a className="topic_Text" style={{ color: " #FFF" }}>
-                    {topic.name}
-                  </a>
-                </div>
+                <li>
+                  <Link to={`/quiztopic/${topic.name}`}>
+                    <div
+                      key={topic.id}
+                      className="topic_Container"
+                      onClick={() => topicSelect(topic)}
+                    >
+                      <img
+                        className="topic_icon"
+                        src={topic.icon}
+                        alt={topic.name}
+                      />
+                      <a className="topic_Text">{topic.name}</a>
+                    </div>
+                  </Link>
+                </li>
               ))}
             </div>
           </div>

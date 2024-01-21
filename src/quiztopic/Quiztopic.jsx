@@ -6,8 +6,17 @@ import b from "../icons/b.svg";
 import c from "../icons/c.svg";
 import d from "../icons/d.svg";
 import Result from "../result/Result";
+import { useParams } from "react-router-dom";
 
 const Quiztopic = (props) => {
+  // useParams() returns an object of key/value pairs of URL parameters. Use it to access match.params of the current <Route>.
+  const { topic } = useParams();
+
+  // selectedQuiz is an object that contains the quiz data for the selected topic
+  const selectedQuiz = props.quizData.quizzes.find(
+    (quiz) => quiz.title === topic
+  );
+
   return (
     <div className="quizMain">
       {!props.goDark ? (

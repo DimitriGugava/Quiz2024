@@ -6,6 +6,7 @@ import Header from "./headerContainer/Header";
 import Main from "./main/Main";
 import data from "./data.json";
 import Quiztopic from "./quiztopic/Quiztopic";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App(props) {
   const [goDark, setGoDark] = useState(false);
@@ -18,73 +19,103 @@ function App(props) {
   };
 
   return (
-    <>
-      {!goDark ? (
-        <div className="App">
-          <Header
-            goDark={goDark}
-            setGoDark={setGoDark}
-            goLight={goLight}
-            setGoLight={setGoLight}
-            handleDark={handleDark}
-          />
-          <Main
-            setTopicClicked={setTopicClicked}
-            topicClicked={topicClicked}
-            setQuizData={setQuizData}
-            quizData={quizData}
-            goDark={goDark}
-            setGoDark={setGoDark}
-            goLight={goLight}
-            setGoLight={setGoLight}
-            handleDark={handleDark}
-          />
-          {/* <Quiztopic
-          setTopicClicked={setTopicClicked}
-            topicClicked={topicClicked}
-           setQuizData={setQuizData}
-            quizData={quizData}
-            goDark={goDark}
-            setGoDark={setGoDark}
-            goLight={goLight}
-            setGoLight={setGoLight}
-            handleDark={handleDark}
-          /> */}
-        </div>
-      ) : (
-        <div className="App" style={{ backgroundColor: "#313E51" }}>
-          <Header
-            goDark={goDark}
-            setGoDark={setGoDark}
-            goLight={goLight}
-            setGoLight={setGoLight}
-            handleDark={handleDark}
-          />
-          {/* <Main
-          setTopicClicked={setTopicClicked}
-            topicClicked={topicClicked}
-           setQuizData={setQuizData}
-            quizData={quizData}
-        goDark={goDark}
-        setGoDark={setGoDark}
-        goLight={goLight}
-        setGoLight={setGoLight}
-        handleDark={handleDark}
-      /> */}
-          <Quiztopic
-            setTopicClicked={setTopicClicked}
-            topicClicked={topicClicked}
-            setQuizData={setQuizData}
-            quizData={quizData}
-            goDark={goDark}
-            setGoDark={setGoDark}
-            goLight={goLight}
-            setGoLight={setGoLight}
-            handleDark={handleDark}
-          />
-        </div>
-      )}
-    </>
+    <Router>
+      <>
+        {!goDark ? (
+          <div className="App">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Header
+                      goDark={goDark}
+                      setGoDark={setGoDark}
+                      goLight={goLight}
+                      setGoLight={setGoLight}
+                      handleDark={handleDark}
+                    />
+                    <Main
+                      setTopicClicked={setTopicClicked}
+                      topicClicked={topicClicked}
+                      setQuizData={setQuizData}
+                      quizData={quizData}
+                      goDark={goDark}
+                      setGoDark={setGoDark}
+                      goLight={goLight}
+                      setGoLight={setGoLight}
+                      handleDark={handleDark}
+                    />
+                  </>
+                }
+              />
+              <Route
+                path="/quiztopic/:topic"
+                element={
+                  <Quiztopic
+                    setTopicClicked={setTopicClicked}
+                    topicClicked={topicClicked}
+                    setQuizData={setQuizData}
+                    quizData={quizData}
+                    goDark={goDark}
+                    setGoDark={setGoDark}
+                    goLight={goLight}
+                    setGoLight={setGoLight}
+                    handleDark={handleDark}
+                  />
+                }
+              />
+            </Routes>
+          </div>
+        ) : (
+          <div className="App" style={{ backgroundColor: "#313E51" }}>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Header
+                      goDark={goDark}
+                      setGoDark={setGoDark}
+                      goLight={goLight}
+                      setGoLight={setGoLight}
+                      handleDark={handleDark}
+                    />
+                    <Main
+                      setTopicClicked={setTopicClicked}
+                      topicClicked={topicClicked}
+                      setQuizData={setQuizData}
+                      quizData={quizData}
+                      goDark={goDark}
+                      setGoDark={setGoDark}
+                      goLight={goLight}
+                      setGoLight={setGoLight}
+                      handleDark={handleDark}
+                    />
+                  </>
+                }
+              />
+              <Route
+                path="/quiztopic/:topic"
+                element={
+                  <Quiztopic
+                    setTopicClicked={setTopicClicked}
+                    topicClicked={topicClicked}
+                    setQuizData={setQuizData}
+                    quizData={quizData}
+                    goDark={goDark}
+                    setGoDark={setGoDark}
+                    goLight={goLight}
+                    setGoLight={setGoLight}
+                    handleDark={handleDark}
+                  />
+                }
+              />
+            </Routes>
+          </div>
+        )}
+      </>
+    </Router>
   );
 }
 
