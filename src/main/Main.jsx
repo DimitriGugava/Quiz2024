@@ -18,6 +18,7 @@ const Main = (props) => {
     props.setTopicClicked(true);
     console.log("Selected topic:", topic.name);
   };
+
   return (
     <div>
       {!props.goDark ? (
@@ -34,7 +35,7 @@ const Main = (props) => {
             </div>
             <div className="topic_Select_Box">
               {topics.map((topic) => (
-                <li>
+                <>
                   <Link to={`/quiztopic/${topic.name}`}>
                     <div
                       key={topic.id}
@@ -49,7 +50,7 @@ const Main = (props) => {
                       <a className="topic_Text">{topic.name}</a>
                     </div>
                   </Link>
-                </li>
+                </>
               ))}
             </div>
           </div>
