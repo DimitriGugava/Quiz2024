@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App(props) {
   const [goDark, setGoDark] = useState(false);
+  const [rightAnswer, setRightAnswer] = useState("");
 
   const [topics, setTopics] = useState(data.quizzes);
   const [selectedQuiz, setSelectedQuiz] = useState(null);
@@ -28,13 +29,23 @@ function App(props) {
             element={
               <>
                 <Header />
-                <Main topics={topics} />
+                <Main
+                  topics={topics}
+                  setRightAnswer={setRightAnswer}
+                  rightAnswer={rightAnswer}
+                />
               </>
             }
           />
           <Route
             path="/quiztopic/:topic"
-            element={<Quiztopic topics={topics} />}
+            element={
+              <Quiztopic
+                topics={topics}
+                setRightAnswer={setRightAnswer}
+                rightAnswer={rightAnswer}
+              />
+            }
           />
         </Routes>
       </div>
